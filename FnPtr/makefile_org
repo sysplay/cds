@@ -1,0 +1,32 @@
+CC := gcc
+
+ALL_SRCS := $(wildcard *.c)
+SRCS := $(filter-out f.c, ${ALL_SRCS})
+SINGLE_SOURCE := f.c
+
+OBJS := $(SRCS:.c=.o)
+SINGLE_OBJS := $(SINGLE_SOURCE:.c=.o)
+
+TGT := compute_avg
+SINGLE_TGT := function_pointer
+
+.PHONY: run
+
+run: ${TGT}
+	./${TGT}
+
+${TGT}: ${OBJS}
+	${CC} ${CFLAGS} $^ -o $@
+
+${SINGLE_TGT}: ${SINGLE_OBJS}
+	${CC} ${CFLAGS} ${SINGLE_OBJS} -o ${SINGLE_TGT}
+
+clean:
+	${RM} .depend ${OBJS} ${TGT}
+
+.depend: ${SRCS}
+	${CC} -MM ${CFLAGS} $^ > $@
+
+ifneq (${MAKECMDGOALS},clean)
+-include .depend
+endif

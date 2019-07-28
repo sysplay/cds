@@ -1,0 +1,11 @@
+function_pointer: compute_fns.o fn_ptr.o
+	cc -o function_pointer compute_fns.o fn_ptr.o
+
+compute_fns.o: compute_fns.c compute_fns.h
+fn_ptr.o: fn_ptr.c compute_fns.h
+
+clean:
+	rm function_pointer compute_fns.o fn_ptr.o
+
+
+

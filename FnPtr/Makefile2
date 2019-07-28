@@ -1,0 +1,13 @@
+OBJECTS := compute_fns.o fn_ptr.o
+
+function_pointer: ${OBJECTS}
+	cc -o function_pointer ${OBJECTS}
+
+compute_fns.o: compute_fns.c compute_fns.h
+fn_ptr.o: fn_ptr.c compute_fns.h
+
+clean:
+	rm function_pointer ${OBJECTS}
+
+
+

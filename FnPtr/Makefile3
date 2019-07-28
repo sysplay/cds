@@ -1,0 +1,17 @@
+SRCS := $(wildcard *.c)
+OBJECTS := $(SRCS:.c=.o)
+
+function_pointer: ${OBJECTS}
+	cc -o function_pointer ${OBJECTS}
+
+.depend: 
+	cc -MM ${SRCS} > .depend
+
+clean:
+	rm function_pointer ${OBJECTS}
+
+ifneq (${MAKECMDGOALS}, clean)
+-include .depend
+endif
+
+
