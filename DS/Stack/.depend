@@ -1,0 +1,2 @@
+stack.o: LibraryCode/stack.c Include/local_types.h Include/stack.h \
+ Include/local_types.h

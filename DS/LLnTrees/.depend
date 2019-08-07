@@ -1,0 +1,4 @@
+bin_tree.o: LibraryCode/bin_tree.c Include/local_types.h \
+ Include/bin_tree.h Include/local_types.h
+sll.o: LibraryCode/sll.c Include/local_types.h Include/sll.h \
+ Include/local_types.h

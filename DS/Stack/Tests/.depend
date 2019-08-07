@@ -1,0 +1,2 @@
+palindrome.o: palindrome.c ../Include/stack.h ../Include/local_types.h \
+ ../Include/local_types.h
